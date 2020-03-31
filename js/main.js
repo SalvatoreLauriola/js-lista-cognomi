@@ -3,21 +3,29 @@
 // 3 Stampa la lista ordinata alfabeticamente
 // 4 Scrivi anche la posizione della lista in cui il nuovo utente si trova
 
-var cognome = prompt('Inserisci il tuo cognome');
+
 
 var list = ['Bianchi', 'Rossi', 'Duzioni', 'Balsano', 'Verdi'];
+var cognomi = document.getElementById('cognomi');
+var listaCognomi = document.getElementById('lista-cognomi');
+var btn = document.getElementById('create');
 
-list.push(cognome);
+btn.addEventListener('click',
 
-list.sort();
+function() {
+  list.push(cognomi.value);
+  list.sort();
 
-console.log(list);
+  var items= '';
+  for (i=0; i < list.length; i++) {
+    items += '<li>' + list [i] + '</li>';
+
+    listaCognomi.innerHTML = items + 'Il tuo cognome è il ' + list.indexOf(cognomi.value);
+  }
+}
+);
 
 
-var order = list.indexOf(cognome);
-
-var orderFixed = order + 1;
-console.log(orderFixed);
 
 
 
